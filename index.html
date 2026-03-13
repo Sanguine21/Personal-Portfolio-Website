@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prachi Kumari | Creative Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    .section-title {
+      position: relative;
+      display: inline-block;
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #5b21b6;
+      text-align: center;
+    }
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -12px;
+      width: 76px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #6d28d9, #8b5cf6);
+    }
+    .section-subtext {
+      margin-top: 26px;
+      color: #64748b;
+      text-align: center;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(2, 6, 23, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      color: white;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+    .nav-links a {
+      transition: 0.25s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #c4b5fd;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .hero {
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(86,45,210,0.95), rgba(74,32,176,0.9)),
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 30%);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+    .hero::before {
+      width: 220px;
+      height: 220px;
+      background: #ffffff;
+      top: -40px;
+      left: -40px;
+    }
+    .hero::after {
+      width: 260px;
+      height: 260px;
+      background: #f0abfc;
+      right: -60px;
+      bottom: -70px;
+    }
+    .hero-wrap {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      padding: 72px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 0.92rem;
+      margin-bottom: 22px;
+    }
+    .hero-badge span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #86efac;
+      display: inline-block;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1.15;
+      font-weight: 900;
+    }
+    .hero h1 .highlight { color: #ddd6fe; }
+    .hero p {
+      max-width: 700px;
+      margin-top: 22px;
+      font-size: 1.06rem;
+      color: rgba(255,255,255,0.9);
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 18px;
+      font-weight: 600;
+      transition: 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: white;
+      color: #6d28d9;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+    .btn-primary:hover {
+      transform: translateY(-4px);
+    }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.32);
+      color: white;
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.08);
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .hero-tags span {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.92);
+    }
+    .profile-card-wrap {
+      position: relative;
+      max-width: 430px;
+      margin-left: auto;
+    }
+    .profile-card-wrap::before,
+    .profile-card-wrap::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: -1;
+    }
+    .profile-card-wrap::before {
+      width: 130px;
+      height: 130px;
+      top: -18px;
+      left: -18px;
+      background: rgba(255,255,255,0.2);
+    }
+    .profile-card-wrap::after {
+      width: 150px;
+      height: 150px;
+      bottom: -24px;
+      right: -16px;
+      background: rgba(244,114,182,0.28);
+    }
+    .profile-glass {
+      border-radius: 34px;
+      padding: 22px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+    .profile-card {
+      background: white;
+      color: #0f172a;
+      border-radius: 28px;
+      padding: 28px;
+    }
+    .profile-top {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .avatar {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: #ede9fe;
+      color: #6d28d9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.7rem;
+      overflow: hidden;
+    }
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .profile-top h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+    .profile-top p {
+      color: #64748b;
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+    .mini-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .mini-box {
+      background: #f8fafc;
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .mini-box small {
+      display: block;
+      color: #64748b;
+      margin-bottom: 5px;
+      font-size: 0.82rem;
+    }
+    .mini-box strong {
+      font-size: 0.96rem;
+    }
+
+    section { padding: 90px 0; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 44px;
+      align-items: start;
+    }
+    .about-text p {
+      margin-top: 18px;
+      color: #475569;
+      font-size: 1.03rem;
+      line-height: 1.95;
+    }
+    .skills-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .bar-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(15,23,42,0.04);
+    }
+    .bar-head {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #334155;
+    }
+    .bar-track {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      background: #e2e8f0;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #6d28d9, #d946ef);
+    }
+
+    .light-bg { background: #f8fafc; }
+    .cards-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .skill-card,
+    .feature-card,
+    .project-card,
+    .stat-card {
+      transition: 0.35s ease;
+    }
+    .skill-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.05);
+    }
+    .skill-card:hover,
+    .project-card:hover,
+    .feature-card:hover,
+    .contact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(15,23,42,0.1);
+    }
+    .icon-box {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      background: #ede9fe;
+      color: #6d28d9;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+    }
+    .skill-card h3,
+    .feature-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 10px;
+    }
+    .skill-card p,
+    .feature-card p,
+    .project-body p {
+      color: #64748b;
+      line-height: 1.8;
+      font-size: 0.97rem;
+    }
+
+    .project-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+    .project-card {
+      overflow: hidden;
+      border-radius: 30px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.05);
+    }
+    .project-preview {
+      height: 250px;
+      padding: 22px;
+      display: flex;
+      align-items: stretch;
+    }
+    .gradient-1 { background: linear-gradient(135deg, #bae6fd, #ffffff, #ddd6fe); }
+    .gradient-2 { background: linear-gradient(135deg, #fed7aa, #fce7f3, #fef3c7); }
+    .gradient-3 { background: linear-gradient(135deg, #0f172a, #6d28d9, #1e293b); }
+    .gradient-4 { background: linear-gradient(135deg, #d1fae5, #ecfeff, #bfdbfe); }
+    .mock-browser {
+      width: 100%;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.4);
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 16px;
+      backdrop-filter: blur(6px);
+    }
+    .mock-grid {
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+    }
+    .mock-grid div {
+      border-radius: 14px;
+      background: rgba(255,255,255,0.8);
+    }
+    .mock-grid div.wide { grid-column: span 2; }
+    .project-body {
+      padding: 28px;
+    }
+    .project-type {
+      color: #7c3aed;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+    .project-body h3 {
+      margin-top: 10px;
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+    .project-buttons {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .project-buttons .btn {
+      padding: 12px 18px;
+      border-radius: 16px;
+      font-size: 0.92rem;
+    }
+    .project-buttons .live {
+      background: #6d28d9;
+      color: white;
+    }
+    .project-buttons .case {
+      background: white;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+    }
+
+    .stats-wrap {
+      background: #faf5ff;
+      padding: 70px 0;
+    }
+    .stats-grid {
+      background: white;
+      border: 1px solid #ede9fe;
+      border-radius: 34px;
+      box-shadow: 0 10px 30px rgba(91,33,182,0.06);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .stat-card {
+      text-align: center;
+    }
+    .stat-card h3 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      color: #6d28d9;
+    }
+    .stat-card p {
+      color: #64748b;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-top: 8px;
+    }
+
+    .timeline-wrap {
+      margin-top: 56px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      transform: translateX(-50%);
+      background: #ddd6fe;
+      border-radius: 999px;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      position: relative;
+      margin-bottom: 34px;
+      align-items: start;
+    }
+    .timeline-item:nth-child(even) .timeline-card {
+      grid-column: 2;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: 50%;
+      top: 28px;
+      width: 24px;
+      height: 24px;
+      transform: translateX(-50%);
+      background: #6d28d9;
+      border: 5px solid #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 6px 18px rgba(109,40,217,0.28);
+      z-index: 2;
+    }
+    .timeline-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+    }
+    .timeline-card .year {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #7c3aed;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+    .timeline-card h3 {
+      margin-top: 10px;
+      font-size: 1.45rem;
+    }
+    .timeline-card p {
+      margin-top: 10px;
+      color: #64748b;
+      line-height: 1.85;
+    }
+
+    .feature-grid {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .feature-card {
+      background: white;
+      border-radius: 30px;
+      padding: 32px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.04);
+    }
+
+    .contact-section {
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(86,45,210,0.95), rgba(74,32,176,0.9)),
+        radial-gradient(circle at top left, rgba(255,255,255,0.14), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(255,255,255,0.12), transparent 30%);
+    }
+    .contact-box {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(12px);
+      border-radius: 34px;
+      padding: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    }
+    .contact-heading {
+      text-align: center;
+    }
+    .contact-heading h2 {
+      font-size: 2.3rem;
+      font-weight: 800;
+    }
+    .contact-heading p {
+      margin-top: 12px;
+      color: rgba(255,255,255,0.9);
+    }
+    .contact-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 24px;
+    }
+    .contact-card {
+      background: white;
+      color: #0f172a;
+      border-radius: 28px;
+      padding: 28px;
+      transition: 0.35s ease;
+    }
+    .contact-card a {
+      display: inline-block;
+      transition: 0.25s ease;
+    }
+    .contact-card a:hover {
+      color: #6d28d9;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background: #020617;
+      color: white;
+      text-align: center;
+      padding: 22px 16px;
+      font-size: 0.95rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: all 0.8s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 992px) {
+      .hero-wrap,
+      .about-grid,
+      .contact-grid,
+      .project-grid,
+      .cards-grid,
+      .feature-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .profile-card-wrap {
+        margin: 0 auto;
+      }
+      .timeline-line {
+        left: 20px;
+        transform: none;
+      }
+      .timeline-item {
+        grid-template-columns: 1fr;
+        padding-left: 54px;
+      }
+      .timeline-item:nth-child(even) .timeline-card {
+        grid-column: auto;
+      }
+      .timeline-dot {
+        left: 8px;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: absolute;
+        right: 16px;
+        top: 72px;
+        width: 220px;
+        background: #111827;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 18px;
+        padding: 18px;
+        flex-direction: column;
+        display: none;
+      }
+      .nav-links.show { display: flex; }
+      .hero-wrap { min-height: auto; padding: 54px 0; }
+      section { padding: 76px 0; }
+      .profile-card,
+      .contact-card,
+      .contact-box,
+      .skill-card,
+      .feature-card,
+      .timeline-card,
+      .bar-card,
+      .project-body { padding: 22px; }
+      .section-title { font-size: 1.9rem; }
+      .hero-buttons { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <a href="#home" class="logo">PK</a>
+      <div class="menu-toggle" id="menuToggle">☰</div>
+      <ul class="nav-links" id="navLinks">
+       
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#portfolio">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container hero-wrap">
+      <div class="reveal">
+        <div class="hero-badge"><span></span>Available for internships and junior web design roles.</div>
+        <h1>Hello, I’m <span class="highlight">Prachi Kumari</span> —<br>Aspiring web designer & creative frontend learner.</h1>
+        <p>I design clean, modern, responsive websites with a focus on clarity, visual appeal, and strong user experience. I’m building my portfolio for corporate opportunities in web design and front-end roles.</p>
+        <div class="hero-buttons">
+          <a href="#portfolio" class="btn btn-primary">View Projects</a>
+          <a href="resume.pdf" class="btn btn-outline" download>Download my Resume</a>
+        </div>
+        <div class="hero-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript</span>
+          <span>Figma</span>
+          <span>Responsive Design</span>
+        </div>
+      </div>
+
+      <div class="profile-card-wrap reveal">
+        <div class="profile-glass">
+          <div class="profile-card">
+            <div class="profile-top">
+              <div class="avatar">
+                <img src="profile.jpg" alt="Prachi Kumari" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+              </div>
+              <div>
+                <h2>Prachi Kumari</h2>
+                <p>Aspiring Web Designer</p>
+              </div>
+            </div>
+            <div class="mini-grid">
+              <div class="mini-box">
+                <small>Education</small>
+                <strong>Undergraduate Computer Science Student</strong>
+              </div>
+              <div class="mini-box">
+                <small>Languages</small>
+                <strong>Japanese, German</strong>
+              </div>
+              <div class="mini-box">
+                <small>Goal</small>
+                <strong>Corporate Web Design</strong>
+              </div>
+              <div class="mini-box">
+                <small>Strength</small>
+                <strong>Creative Learner</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <h2 class="section-title">Who Am I?</h2>
+        <p><strong>I’m Prachi Kumari, a Computer Science student with a growing passion for web designing.</strong></p>
+        <p>I enjoy turning simple ideas into clean, visually appealing websites that feel modern, organized, and easy to navigate. 
+For me, web design is not just about writing code — it’s about creating thoughtful digital experiences where design, structure, and content work together seamlessly.
+</p>
+        <p>I like experimenting with layouts, refining section styling, and improving the overall look and usability of a webpage. 
+Along with front-end fundamentals, I also enjoy content writing and researching ideas that help transform basic pages into well-structured, portfolio-worthy websites.
+I believe the best way to learn design is by building real projects. 
+Through projects like my Digital Scam Detection project and this personal portfolio, I continue to explore new ideas, strengthen my design thinking, and develop the practical skills needed to start a professional career as a web designer.
+</p>
+<p>
+Beyond technology, I also enjoy learning languages and currently have beginner-level knowledge of Japanese and German. 
+This reflects my curiosity for learning new things and exploring different perspectives beyond my field of study.
+</p>
+
+      </div>
+
+      <div class="skills-bars reveal">
+        <div class="bar-card">
+          <div class="bar-head"><span>UI Design</span><span>85%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div>
+        </div>
+        <div class="bar-card">
+          <div class="bar-head"><span>Responsive Layouts</span><span>80%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 75%;"></div></div>
+        </div>
+        <div class="bar-card">
+          <div class="bar-head"><span>HTML & CSS</span><span>88%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 93%;"></div></div>
+        </div>
+        <div class="bar-card">
+          <div class="bar-head"><span>Visual Presentation</span><span>82%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 82%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="light-bg">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <h2 class="section-title">Here’s What I’m Good At</h2>
+        <p class="section-subtext">These are the core strengths I’m building for a web design career.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="skill-card reveal"><div class="icon-box">W</div><h3>Web Design</h3><p>Clean, modern website layouts focused on clarity, visual hierarchy, and strong first impressions.</p></div>
+        <div class="skill-card reveal"><div class="icon-box">R</div><h3>Responsive UI</h3><p>Designs that adapt smoothly across mobile, tablet, and desktop screens.</p></div>
+        <div class="skill-card reveal"><div class="icon-box">F</div><h3>Frontend Basics</h3><p>HTML, CSS, JavaScript, and interface building with attention to usability.</p></div>
+        <div class="skill-card reveal"><div class="icon-box">U</div><h3>UI Research</h3><p>Simple user-centered thinking to make pages easy to understand and navigate.</p></div>
+        <div class="skill-card reveal"><div class="icon-box">V</div><h3>Visual Design</h3><p>Typography, color balance, section composition, and polished presentation.</p></div>
+        <div class="skill-card reveal"><div class="icon-box">P</div><h3>Portfolio Building</h3><p>Landing pages, personal branding sites, and showcase websites for real use.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <h2 class="section-title">Check Out My Portfolio</h2>
+        <p class="section-subtext">A few project directions that reflect the kind of websites I want to build.</p>
+      </div>
+      <div class="project-grid">
+       <div class="project-card reveal">
+  <div class="project-preview gradient-1">
+    <img src="project1.png" alt="Project Screenshot">
+  </div>
+
+  <div class="project-body">
+    <div class="project-type">BRANDING + UI</div>
+    <h3>Personal Portfolio Website</h3>
+    <p>A personal portfolio concept focused on clean layout, smooth navigation, and recruiter-friendly presentation.</p>
+
+    <div class="project-buttons">
+      <a href="#" class="btn live">Live Demo</a>
+      <a href="#" class="btn case">Case Study</a>
+    </div>
+  </div>
+</div>
+
+        <div class="project-card reveal">
+          <div class="project-preview gradient-2">
+  <img src="project2.png" alt="Digital Scam Detection Project">
+</div>
+          <div class="project-body">
+            <div class="project-type">Academic Project</div>
+            <h3>Digital Scam Detection Project</h3>
+            <p>A project showcase page presenting your scam detection work with sections for problem, approach, and outcome.</p>
+            <div class="project-buttons">
+              <a href="https://github.com/Sanguine21/Digital-Scam-Detection/" class="btn live">Repository</a>
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-wrap">
+    <div class="container">
+      <div class="stats-grid reveal">
+        <div class="stat-card"><h3>3+</h3><p>Practice Projects</p></div>
+        <div class="stat-card"><h3>3</h3><p>Core Web Skills</p></div>
+        <div class="stat-card"><h3>2</h3><p>Foreign Languages</p></div>
+        <div class="stat-card"><h3>100%</h3><p>Growth Mindset</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <h2 class="section-title">My Growth Journey</h2>
+        <p class="section-subtext">How I’m shaping my path toward a professional web design career.</p>
+      </div>
+      <div class="timeline-wrap">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <div class="year">Current Focus</div>
+            <h3>Aspiring Web Designer</h3>
+            <p>Building skills in web design, UI design, responsive layouts, and personal branding through portfolio projects.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <div class="year">Learning Path</div>
+            <h3>Frontend & Design Practice</h3>
+            <p>Improving HTML, CSS, JavaScript, layout design, visual consistency, and modern portfolio presentation.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-card">
+            <div class="year">Strengths</div>
+            <h3>Creative + Consistent Learner</h3>
+            <p>Interested in designing user-friendly websites and developing a strong professional profile for corporate roles.</p>
+          </div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="light-bg">
+    <div class="container">
+      <div class="reveal" style="text-align:center;">
+        <h2 class="section-title">What Makes Me Stand Out</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card reveal"><h3>Fast Learner</h3><p>I actively improve my profile, resume, and web skills with a strong focus on becoming job-ready.</p></div>
+        <div class="feature-card reveal"><h3>Creative Mindset</h3><p>I prefer visually polished layouts and I care about presentation, clarity, and good first impression.</p></div>
+        <div class="feature-card reveal"><h3>Career Focused</h3><p>My goal is to build a strong portfolio and move confidently toward a professional corporate role.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div class="contact-heading">
+          <h2>Let's Connect</h2>
+          <p>Interested in connecting or discussing opportunities? Feel free to reach out.</p>
+        </div>
+
+        <div class="contact-grid" style="grid-template-columns: repeat(4,1fr); text-align:center;">
+
+          <div class="contact-card">
+            <div style="font-size:40px; margin-bottom:15px;">📧</div>
+            <p style="letter-spacing:2px; font-size:12px; color:#64748b;">WRITE ME</p>
+            <p style="margin-top:10px; font-weight:600;"><a href="mailto:jha040328@gmail.com" style="color:inherit;">Email Me</a></p>
+          </div>
+
+          <div class="contact-card">
+            <div style="font-size:40px; margin-bottom:15px;">📞</div>
+            <p style="letter-spacing:2px; font-size:12px; color:#64748b;">CALL ME</p>
+            <p style="margin-top:10px; font-weight:600;"><a href="tel:+918169673379" style="color:inherit;">Call Me</a></p>
+          </div>
+
+          <div class="contact-card">
+            <div style="font-size:40px; margin-bottom:15px;">🔗</div>
+            <p style="letter-spacing:2px; font-size:12px; color:#64748b;">FIND ME</p>
+            <p style="margin-top:10px; font-weight:600;"><a href="https://www.linkedin.com/in/prachi-kumari-252033296/" target="_blank" style="color:inherit;">LinkedIn</a></p>
+          </div>
+
+          <div class="contact-card">
+            <div style="font-size:40px; margin-bottom:15px;">💻</div>
+            <p style="letter-spacing:2px; font-size:12px; color:#64748b;">SEE MY WORK</p>
+            <p style="margin-top:10px; font-weight:600;"><a href="https://github.com/Sanguine21" target="_blank" style="color:inherit;">GitHub</a></p>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:40px;">
+          <a href="resume.pdf" class="btn btn-primary" download>Download My CV</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Prachi Kumari. All rights reserved.
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    navAnchors.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        const sectionHeight = section.offsetHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navAnchors.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Form submitted. You can connect this form to Formspree or Netlify Forms later.');
+    });
+  </script>
+</body>
+</html>
