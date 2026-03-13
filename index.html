@@ -413,11 +413,22 @@
       box-shadow: 0 8px 24px rgba(15,23,42,0.05);
     }
     .project-preview {
-      height: 250px;
-      padding: 22px;
-      display: flex;
-      align-items: stretch;
-    }
+  height: 280px;
+  padding: 22px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
     .gradient-1 { background: linear-gradient(135deg, #bae6fd, #ffffff, #ddd6fe); }
     .gradient-2 { background: linear-gradient(135deg, #fed7aa, #fce7f3, #fef3c7); }
     .gradient-3 { background: linear-gradient(135deg, #0f172a, #6d28d9, #1e293b); }
@@ -1048,3 +1059,4 @@ This reflects my curiosity for learning new things and exploring different persp
   </script>
 </body>
 </html>
+
