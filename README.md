@@ -111,9 +111,8 @@ The website will load locally on your system.
 
 ## Live Demo
 
-You can view the live version of the portfolio here:
+You can view the live version of the portfolio here: https://sanguine21.github.io/Personal-Portfolio-Website/
 
-Example:
 
 ---
 
